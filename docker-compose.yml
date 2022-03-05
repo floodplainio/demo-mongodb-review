@@ -1,7 +1,7 @@
 version: '2'
 services:
   review:
-    image: floodplain/demo-mongodb-review
+    image: floodplain/demo-mongodb-review:latest
     environment:
       MONGODB_CONNECTION_STRING: mongodb://mongo:27017
     depends_on:
