@@ -6,6 +6,7 @@ jobs: # a collection of steps
       # Configure the JVM and Gradle to avoid OOM errors
       _JAVA_OPTIONS: "-Xmx1g"
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2"
+      PIPELINE_NUMBER: <<pipeline.number>>
     machine:
       image: ubuntu-2004:202010-01
     resource_class: medium
@@ -49,7 +50,7 @@ jobs: # a collection of steps
           command: |
             docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
             docker build -f src/main/docker/Dockerfile.native-micro -t floodplain/demo-mongodb-review .
-            docker push floodplain/demo-mongodb-review:<< pipeline.number >>
+            docker push floodplain/demo-mongodb-review:${PIPELINE_NUMBER}
 
 workflows:
   version: 2
