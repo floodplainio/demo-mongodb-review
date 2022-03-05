@@ -50,7 +50,7 @@ jobs: # a collection of steps
           command: |
             docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
             docker build -f src/main/docker/Dockerfile.native-micro -t floodplain/demo-mongodb-review .
-            docker push floodplain/demo-mongodb-review:${PIPELINE_NUMBER}
+            docker push floodplain/demo-mongodb-review:latest
 
 workflows:
   version: 2
