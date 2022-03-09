@@ -24,7 +24,7 @@ dependencies {
     testImplementation("io.rest-assured:rest-assured")
 }
 
-group = "org.acme"
+group = "io.floodplain"
 version = "1.0.0-SNAPSHOT"
 
 java {
