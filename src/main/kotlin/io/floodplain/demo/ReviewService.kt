@@ -3,14 +3,17 @@ package io.floodplain.demo
 import com.mongodb.client.MongoClient
 import com.mongodb.client.MongoCollection
 import com.mongodb.client.model.Updates
+import io.quarkus.runtime.Startup
 import org.bson.Document
 import java.util.UUID
 import javax.enterprise.context.ApplicationScoped
 import javax.inject.Inject
 import org.jboss.logging.Logger
+import javax.enterprise.context.Destroyed
 
 private val logger = Logger.getLogger(ReviewService::class.java)
 
+@Startup
 @ApplicationScoped
 class ReviewService {
     @Inject
