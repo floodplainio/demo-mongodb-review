@@ -34,7 +34,11 @@ class DemoInserter {
         }.toList()
         val job = GlobalScope.launch {
             while (isActive) {
-                reviewService.addReviewToReviewer(nextInt(0, 100), Review(quoteList.get(nextInt(quoteList.size-1)), nextInt(1, 1000), nextDouble(0.0,10.0)))
+                try {
+                    reviewService.addReviewToReviewer(nextInt(0, 100), Review(quoteList.get(nextInt(quoteList.size-1)), nextInt(1, 1000), nextDouble(0.0,10.0)))
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
                 delay(1000)
             }
         }
